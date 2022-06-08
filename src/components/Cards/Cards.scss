@@ -1,0 +1,31 @@
+.card-container {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 250px;
+    height: auto;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 5px 5px black;
+    background-color: azure;
+
+    &__member-name {
+        text-align: center;
+        padding: 10px;
+        font-size: 25px;
+        font-weight: 900;
+    }
+
+    &__member-role {
+        text-align: center;
+        padding: 10px;
+        font-size: 20px;
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
