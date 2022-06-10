@@ -9,12 +9,14 @@ const Counter = ({member}) => {
     const handleIncrement = () => {
         setCount(count + 1)
         member.counter++
+
     }
 
      const handleDecrement = () => {
         if (count !== 0) {
             setCount(count - 1)
             member.counter--
+
         }
     }
 

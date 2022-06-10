@@ -2,14 +2,18 @@ import './App.scss';
 import team from './data/team';
 import Cards from './components/Cards/Cards';
 import AddCard from './components/AddCard/AddCard';
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import TotalTickets from './components/TotalTickets/TotalTickets.jsx';
 
 function App() {
-  team.forEach(member => member.counter = 0)
+  const addCounter = () => {
+    return team.forEach(member => member.counter = 0)
+  }
+  addCounter()
+  
   const [teamArr, setTeamArr] = useState(team);
-  const [totalCounter, setTotalCounter] = useState(0)
 
-
+  console.log(teamArr);
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log(event.target);
@@ -22,10 +26,11 @@ function App() {
     event.target.userRole.value = "";
     console.log(team);
   }
-  
+
   return (
     <div className="app">
       <h1>Ticket Tracker</h1>
+      {/* <TotalTickets team = {team}/> */}
       <AddCard handleSubmit={handleSubmit}/>
       <Cards team = {team}/>
     </div>
