@@ -11,7 +11,7 @@ const Cards = (props) => {
         <div className="card-container">
             <div className='card-container__member-name'>{member.name}</div>
             <div className="card-container__member-role">{member.role}</div>
-            <Counter team = {team} />
+            <Counter member = {member} />
         </div> 
         )
     })
@@ -19,7 +19,6 @@ const Cards = (props) => {
     return (
         <div className='container' >
             {displayTeam}
-            
         </div>
     )
 }

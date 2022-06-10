@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
-import Cards from '../Cards/Cards';
 import "./AddCard.scss"
 
 const AddCard = (props) => {
-    const { team } = props;
+    const {handleSubmit} = props;
+
     const [showInput, setShowInput] = useState(true)
-    const [name, setName] = useState("");
-    const [role, setRole] = useState("");
     
     const toggleShowArtistInfo = () => {
         showInput ? setShowInput(false) : setShowInput(true)
@@ -18,28 +16,19 @@ const AddCard = (props) => {
         </div>
     )
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        team.push({
-            name: {name},
-            role: {role}
-        })
-        
-    }
-
     const popUpJSX = (
-        <div className='add-container'>
-            <form className='add-container__content' onSubmit={handleSubmit} >
+        <div className='add-container' onSubmit={handleSubmit}>
+            <form className='add-container__content'  >
                 <label htmlFor="name">Name: </label>
-                <input id='name' value={name} type="text" onChange={(e) => setName(e.target.value)} />
+                <input id='name'  type="text" name="userName" />
 
                 <label htmlFor="role">Role: </label>
-                <input id='role' value={role} type="text" onChange={(e) => setRole(e.target.value)} />
+                <input id='role' type="text" name="userRole" />
 
-                <input type="submit" />
+                <input className='add-container__cancel' type="submit"/>
 
             </form>
-            <button onClick={toggleShowArtistInfo}>X</button>
+            <button onClick={toggleShowArtistInfo} className='add-container__cancel'>X</button>
         </div>
     )
 

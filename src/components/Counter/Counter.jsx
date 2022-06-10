@@ -2,18 +2,19 @@ import React, {useState} from 'react';
 import "./Counter.scss";
 import arrow from "../../assets/images/arrow.png";
 
-const Counter = (props) => {
+const Counter = ({member}) => {
     const [count, setCount] = useState(0);
 
-    
+   
     const handleIncrement = () => {
         setCount(count + 1)
-
+        member.counter++
     }
 
      const handleDecrement = () => {
         if (count !== 0) {
             setCount(count - 1)
+            member.counter--
         }
     }
 
