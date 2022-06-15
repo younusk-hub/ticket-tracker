@@ -4,15 +4,15 @@ import "./Cards.scss";
 
 
 const Cards = (props) => {
-    const { team } = props;
+    const { team, handleIncrementTicket, handleDecrementTicket } = props;
     
-    const displayTeam = team.map(member => {
+    const displayTeam = team.map((member, index) => {
         return (
-        <div className="card-container">
+        <div className="card-container" key={index} data-testid="display-card">
             <div className='card-container__member-name'>{member.name}</div>
             <div className="card-container__member-role">{member.role}</div>
             {console.log(member)}
-            <Counter member = {member} />
+            <Counter member = {member} handleIncrementTicket = {handleIncrementTicket} handleDecrementTicket = {handleDecrementTicket} />
         </div>
         )
     })

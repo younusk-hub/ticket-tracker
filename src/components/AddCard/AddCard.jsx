@@ -18,14 +18,14 @@ const AddCard = (props) => {
 
     const popUpJSX = (
         <div className='add-container' onSubmit={handleSubmit}>
-            <form className='add-container__content'  >
+            <form data-testid='test1' className='add-container__content'  >
                 <label htmlFor="name">Name: </label>
                 <input id='name'  type="text" name="userName" />
 
                 <label htmlFor="role">Role: </label>
                 <input id='role' type="text" name="userRole" />
 
-                <input className='add-container__cancel' type="submit"/>
+                <button className='add-container__submit' type="submit" >Submit</button>
 
             </form>
             <button onClick={toggleShowArtistInfo} className='add-container__cancel'>X</button>

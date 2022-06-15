@@ -3,7 +3,7 @@ import team from './data/team';
 import Cards from './components/Cards/Cards';
 import AddCard from './components/AddCard/AddCard';
 import React, {useState, useEffect} from "react";
-import TotalTickets from './components/TotalTickets/TotalTickets.jsx';
+
 
 function App() {
   const addCounter = () => {
@@ -13,7 +13,18 @@ function App() {
   
   const [teamArr, setTeamArr] = useState(team);
 
-  console.log(teamArr);
+  const [totalTickets , setTotalTickets] = useState(0)
+
+  const handleIncrementTicket = () => {
+    setTotalTickets(totalTickets + 1)
+  }
+
+  const handleDecrementTicket = () => {
+    setTotalTickets(totalTickets - 1)
+  }
+
+  console.log(team);
+
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log(event.target);
@@ -26,13 +37,14 @@ function App() {
     event.target.userRole.value = "";
     console.log(team);
   }
+  console.log(team);
 
   return (
     <div className="app">
-      <h1>Ticket Tracker</h1>
-      {/* <TotalTickets team = {team}/> */}
+      <h1>Ticket Tracker </h1>
+      <p>Total tickets: {totalTickets}</p>
       <AddCard handleSubmit={handleSubmit}/>
-      <Cards team = {team}/>
+      <Cards handleIncrementTicket = {handleIncrementTicket} handleDecrementTicket = {handleDecrementTicket}  team = {team}/>
     </div>
   );
 };

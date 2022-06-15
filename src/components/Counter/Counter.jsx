@@ -2,21 +2,21 @@ import React, {useState} from 'react';
 import "./Counter.scss";
 import arrow from "../../assets/images/arrow.png";
 
-const Counter = ({member}) => {
+const Counter = ({member, handleIncrementTicket, handleDecrementTicket}) => {
     const [count, setCount] = useState(0);
 
    
     const handleIncrement = () => {
         setCount(count + 1)
         member.counter++
-
+        handleIncrementTicket()
     }
 
-     const handleDecrement = () => {
+    const handleDecrement = () => {
         if (count !== 0) {
             setCount(count - 1)
             member.counter--
-
+            handleDecrementTicket()
         }
     }
 
